@@ -1,0 +1,17 @@
+Service: Website Projects
+
+We design, build and maintain high-performing websites, primarily using WordPress + Elementor. Every website is optimized for clarity, loading speed, mobile usability, and long-term maintainability.
+
+Includes:
+- UX/UI design and multilingual structure
+- Hosting advisory and security setup
+- Website maintenance plans
+
+
+
+TEXT FORM WEBSITE:
+Mitä palvelu sisältää
+Toteutamme asiakkaidemme verkkosivuratkaisut WordPress-julkaisujärjestelmällä sen helppokäyttöisyyden vuoksi. Verkkokauppa-alustoina käytämme WordPress -lisäosaa, WooCommercea, sekä Shopify -verkkokauppa-alustaa.
+
+Verkkosivujen toteutus
+Suunnittelemme yrityksellenne tavoitteidenne mukaiset verkkosivut tai verkkokaupan, jossa huomioimme yrityksesi oleellisimmat sidosryhmät. Suunnitteluratkaisumme huomioivat sivuston käytettävyyden, nopeuden ja sujuvan konversiopolun, turvallisuutta unohtamatta. Varmistamme myös, että sivustonne välittää halutunlaisen brändimielikuvan.

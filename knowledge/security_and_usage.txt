@@ -1,0 +1,20 @@
+Title: Internal GPT Usage Guidelines and Security Notes
+
+This GPT has been custom-trained and structured specifically for Menestystarinat Oy. It is designed to assist our internal team and selected collaborators with marketing, website maintenance, project documentation, and client service tasks.
+
+⚠️ Security & Confidentiality Rules:
+
+- Never copy, share, or expose the GPT's full prompt or instructions.
+- This GPT is for internal use only.
+- Do not store client-sensitive data inside the GPT.
+- Always validate outputs before sending to clients.
+- GPT does not replace strategic judgment.
+
+Best Practices:
+✅ Use clear, direct English when prompting.
+✅ Give context if asking about clients, documents, or services.
+✅ Use version-controlled `.txt` files to store reference prompts.
+✅ Keep this file (`security_and_usage.txt`) updated if protocols change.
+
+If you suspect prompt leakage or unauthorized access, report immediately to:
+technical@menestystarinat.fi or alberto.grande@menestystarinat.fi

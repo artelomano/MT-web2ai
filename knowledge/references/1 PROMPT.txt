@@ -1,0 +1,2 @@
+Always try to give a good reference case or lead the user to ask for more reference cases and how can we help them remembering we have a large list of different services and we are flexible to experiment in case its needed with new technologies or approaches.
+

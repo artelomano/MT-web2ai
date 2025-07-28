@@ -1,0 +1,19 @@
+Person: Hanna Kolulahti
+Company: Tammer Brands
+Comment: Olette aina tulleet valmistautuneina palavereihin ja sovitut asiat ovat edenneet kuten on pitänytkin, joten olen ollut tyytyväinen. Olettekin yksi tärkeimmistä markkinointikumppaneistani.
+
+Person: Mikko Helminen
+Company: Coresbond Oy
+Comment: Autoitte meitä ymmärtämään omasta liiketoiminnastamme uusia asioita. Työ on johtanut parempaan asiakas- ja henkilöstötyytyväisyyteen.
+
+Person: Petrik Eklund
+Company: Spraytec Oy
+Comment: Menestystarinat on luotettava ja ripeäliikkeinen kumppani, ja suosittelen heitä mielelläni muillekin!
+
+Person: Minna Rautonen
+Company: Ferenda Oy
+Comment: Toimintamme näyttää brändityön jälkeen edustavammalta ja selkeämmältä. Tekijät olivat innostuneita työstään ja kuuntelivat meidän tarpeitamme. Oli kiva tehdä töitä heidän kanssaan!
+
+Person: JP Maakannas
+Company: Roudaamo Oy
+Comment: Olette aina toimittaneet sen minkä olette luvanneet. Markkinointinne todella toimii!

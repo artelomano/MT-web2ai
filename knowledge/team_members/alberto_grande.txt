@@ -1,0 +1,13 @@
+Name: Alberto Grande Sauci
+Role: Technical Project Lead
+
+Alberto is responsible for ensuring that every website project runs smoothly from a technical perspective. He leads implementation, automation, integrations, and maintenance planning, and also ensures that analytics and tracking systems are properly configured.
+
+Clients work closely with Alberto when technical expertise is required, especially in web development, SEO infrastructure, or complex hosting environments.
+
+📧 Email: alberto.grande@menestystarinat.fi
+📞 Phone: [internal use only: 0408448779]
+🖼️ A professional photo of Alberto is available in the team_photos folder.
+
+
+LINKEDIN: https://www.linkedin.com/in/albertograndesauci/
