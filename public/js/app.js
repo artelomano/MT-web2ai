@@ -205,6 +205,58 @@ async function handleSendMessage() {
     }
 }
 
+// Format AI response for better readability
+function formatAIResponse(content) {
+    console.log('🎨 Formatting AI response for better readability');
+    
+    // Split content into paragraphs
+    const paragraphs = content.split('\n\n');
+    
+    let formattedContent = '';
+    
+    paragraphs.forEach((paragraph, index) => {
+        if (paragraph.trim()) {
+            // Check if paragraph starts with bullet points or numbered lists
+            if (paragraph.match(/^[\s]*[•\-\*]\s/)) {
+                // Format bullet points
+                const items = paragraph.split(/\n/);
+                items.forEach(item => {
+                    if (item.trim()) {
+                        formattedContent += `<div class="bullet-point">• ${item.replace(/^[\s]*[•\-\*]\s*/, '')}</div>`;
+                    }
+                });
+            } else if (paragraph.match(/^[\s]*\d+\.\s/)) {
+                // Format numbered lists
+                const items = paragraph.split(/\n/);
+                items.forEach(item => {
+                    if (item.trim()) {
+                        const number = item.match(/^[\s]*(\d+)\.\s/);
+                        if (number) {
+                            formattedContent += `<div class="numbered-item" data-number="${number[1]}">${item.replace(/^[\s]*\d+\.\s*/, '')}</div>`;
+                        }
+                    }
+                });
+            } else if (paragraph.match(/^[\s]*[A-Z][A-Z\s]+:/)) {
+                // Format headers (all caps followed by colon)
+                formattedContent += `<div class="section-header">${paragraph}</div>`;
+            } else if (paragraph.match(/^[\s]*[A-Z][^:]*:$/)) {
+                // Format section headers (ends with colon)
+                formattedContent += `<div class="section-header">${paragraph}</div>`;
+            } else {
+                // Regular paragraph
+                formattedContent += `<div class="paragraph">${paragraph}</div>`;
+            }
+            
+            // Add spacing between paragraphs
+            if (index < paragraphs.length - 1) {
+                formattedContent += '<div class="paragraph-spacing"></div>';
+            }
+        }
+    });
+    
+    return formattedContent;
+}
+
 // Add message to chat UI
 function addMessageToChat(role, content) {
     console.log(`📝 Adding ${role} message to chat`);
@@ -225,7 +277,13 @@ function addMessageToChat(role, content) {
     
     const messageContent = document.createElement('div');
     messageContent.className = 'message-content';
-    messageContent.textContent = content;
+    
+    // Format AI responses, keep user messages as plain text
+    if (role === 'assistant') {
+        messageContent.innerHTML = formatAIResponse(content);
+    } else {
+        messageContent.textContent = content;
+    }
     
     messageDiv.appendChild(avatar);
     messageDiv.appendChild(messageContent);

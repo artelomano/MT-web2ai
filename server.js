@@ -31,13 +31,13 @@ const CONFIG = {
 // Initialize database
 const db = new Database();
 
-console.log('🚀 Starting Menestystarinat AI UI Server...');
-console.log('📊 Configuration:', {
-  PORT,
-  MODEL_NAME: CONFIG.MODEL_NAME,
-  MAX_CONVERSATIONS: CONFIG.MAX_CONVERSATIONS,
-  MAX_TOKENS: CONFIG.MAX_TOKENS_PER_REQUEST
-});
+console.log('\n🚀 **Starting Menestystarinat AI UI Server...**\n');
+console.log('📊 **Configuration:**');
+console.log('  • **PORT:**', PORT);
+console.log('  • **MODEL_NAME:**', CONFIG.MODEL_NAME);
+console.log('  • **MAX_CONVERSATIONS:**', CONFIG.MAX_CONVERSATIONS);
+console.log('  • **MAX_TOKENS:**', CONFIG.MAX_TOKENS_PER_REQUEST);
+console.log('');
 
 // In-memory storage for conversations (in production, use a database)
 const conversations = new Map();
@@ -45,13 +45,13 @@ let conversationCounter = 0;
 
 // Load knowledge base
 async function loadKnowledgeBase() {
-  console.log('📚 Loading knowledge base...');
+  console.log('\n📚 **Loading knowledge base...**\n');
   try {
     const knowledgeBase = await loadKnowledgeFiles(CONFIG.KNOWLEDGE_BASE_PATH);
-    console.log(`✅ Knowledge base loaded: ${knowledgeBase.length} files`);
+    console.log(`✅ **Knowledge base loaded:** ${knowledgeBase.length} files\n`);
     return knowledgeBase;
   } catch (error) {
-    console.error('❌ Error loading knowledge base:', error);
+    console.error('❌ **Error loading knowledge base:**', error);
     return [];
   }
 }
@@ -78,7 +78,7 @@ async function loadKnowledgeFiles(dirPath) {
           content: content.trim(),
           size: content.length
         });
-        console.log(`📄 Loaded: ${relativePath} (${content.length} chars)`);
+        console.log(`  📄 **${relativePath}** (${content.length} chars)`);
       }
     }
   } catch (error) {
@@ -129,13 +129,13 @@ function estimateTokens(text) {
 
 // Routes
 app.get('/', (req, res) => {
-  console.log('🏠 Serving main page');
+  console.log('\n🏠 **Serving main page**');
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Get available models
 app.get('/api/models', (req, res) => {
-  console.log('📋 Serving available models');
+  console.log('\n📋 **Serving available models**');
   const models = [
     { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', price: 'Low' },
     { id: 'gpt-4', name: 'GPT-4', price: 'Medium' },
@@ -151,7 +151,7 @@ app.post('/api/chat', async (req, res) => {
     modelName: req.body.modelName || CONFIG.MODEL_NAME
   };
   
-  console.log(`💬 Chat request - Model: ${modelName}, Conversation: ${conversationId || 'new'}`);
+      console.log(`\n💬 **Chat request** - Model: **${modelName}**, Conversation: **${conversationId || 'new'}**`);
   
   try {
     // Validate input
@@ -186,7 +186,7 @@ app.post('/api/chat', async (req, res) => {
       if (conversations.size > CONFIG.MAX_CONVERSATIONS) {
         const oldestId = Array.from(conversations.keys())[0];
         conversations.delete(oldestId);
-        console.log(`🗑️ Cleaned up old conversation: ${oldestId}`);
+        console.log(`  🗑️ **Cleaned up old conversation:** ${oldestId}`);
       }
     }
     
@@ -219,10 +219,10 @@ app.post('/api/chat', async (req, res) => {
     
     // Estimate tokens
     const totalTokens = estimateTokens(systemPrompt + JSON.stringify(messages));
-    console.log(`🔢 Estimated tokens: ${totalTokens}`);
+    console.log(`  🔢 **Estimated tokens:** ${totalTokens}`);
     
     // Call OpenAI
-    console.log(`🤖 Calling OpenAI with model: ${modelName}`);
+    console.log(`  🤖 **Calling OpenAI** with model: **${modelName}**`);
     const completion = await openai.chat.completions.create({
       model: modelName,
       messages: messages,
@@ -259,7 +259,7 @@ app.post('/api/chat', async (req, res) => {
       );
     }
     
-    console.log(`✅ Response generated - Tokens used: ${tokensUsed}, Time: ${responseTime}ms`);
+    console.log(`  ✅ **Response generated** - Tokens used: **${tokensUsed}**, Time: **${responseTime}ms**\n`);
     
     res.json({
       response: aiResponse,
@@ -270,7 +270,7 @@ app.post('/api/chat', async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Chat error:', error);
+    console.error('  ❌ **Chat error:**', error);
     res.status(500).json({ 
       error: 'Failed to generate response',
       details: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
@@ -390,36 +390,36 @@ app.get('/api/health', async (req, res) => {
 async function startServer() {
   try {
     // Connect to database
-    console.log('🔌 Connecting to database...');
+    console.log('\n🔌 **Connecting to database...**');
     const dbConnected = await db.connect();
     
     if (!dbConnected) {
-      console.warn('⚠️ Database connection failed - running in memory-only mode');
+      console.warn('\n⚠️ **Database connection failed** - running in memory-only mode\n');
     } else {
-      console.log('✅ Database connected successfully');
+      console.log('\n✅ **Database connected successfully**\n');
     }
     
     // Start HTTP server
     app.listen(PORT, () => {
-      console.log(`🎉 Server running on http://localhost:${PORT}`);
-      console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+      console.log(`\n🎉 **Server running on** http://localhost:${PORT}`);
+      console.log(`📊 **Health check:** http://localhost:${PORT}/api/health\n`);
     });
     
   } catch (error) {
-    console.error('❌ Failed to start server:', error);
+    console.error('\n❌ **Failed to start server:**', error);
     process.exit(1);
   }
 }
 
 // Graceful shutdown
 process.on('SIGINT', async () => {
-  console.log('\n🛑 Shutting down server...');
+  console.log('\n🛑 **Shutting down server...**');
   await db.disconnect();
   process.exit(0);
 });
 
 process.on('SIGTERM', async () => {
-  console.log('\n🛑 Shutting down server...');
+  console.log('\n🛑 **Shutting down server...**');
   await db.disconnect();
   process.exit(0);
 });

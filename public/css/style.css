@@ -266,6 +266,58 @@ body {
     color: #ffffff;
 }
 
+/* Formatted AI Response Styles */
+.message.assistant .message-content .paragraph {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.message.assistant .message-content .paragraph-spacing {
+    height: 0.5rem;
+}
+
+.message.assistant .message-content .bullet-point {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.message.assistant .message-content .bullet-point::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #4a9eff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.message.assistant .message-content .numbered-item {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.message.assistant .message-content .numbered-item::before {
+    content: attr(data-number) '.';
+    position: absolute;
+    left: 0;
+    color: #4a9eff;
+    font-weight: bold;
+}
+
+.message.assistant .message-content .section-header {
+    font-weight: bold;
+    color: #4a9eff;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(74, 158, 255, 0.3);
+    padding-bottom: 0.3rem;
+}
+
 /* Chat Input */
 .chat-input-container {
     padding: 1.5rem;
